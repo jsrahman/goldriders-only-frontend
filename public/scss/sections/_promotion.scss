@@ -1,0 +1,312 @@
+@use "../abstracts" as *;
+/* ======================  Promotion Section Start  ======================*/
+
+.promotion-section {
+    --space: 20px;
+    margin: var(--side-gap);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: #{clampCal(10px, 20px)};
+
+    @include lg-screen {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+
+    @include lg-screen {
+        --space: 16px;
+    }
+
+    @include md-screen {
+        --space: 14px;
+    }
+
+    @include sm-screen {
+        --space: 12px;
+    }
+
+    @include msm-screen {
+        --space: 10px;
+    }
+
+
+
+
+}
+
+.promotion-table {
+    .nav-link {
+        cursor: pointer;
+    }
+
+    td {
+        &:first-child {
+            width: 400px;
+        }
+    }
+}
+
+.promotion-card {
+    border-radius: var(--radius30);
+    background: hsl(var(--black-standard));
+    overflow: hidden;
+    max-width: 660px;
+
+    &.disabled {
+        opacity: 0.3;
+        pointer-events: none;
+    }
+
+    .highlight {
+        color: hsl(var(--accent));
+    }
+
+    &__thumb {
+        width: 100%;
+        aspect-ratio: 5/3;
+        max-height: 300px;
+
+        img {
+            object-fit: cover;
+            object-position: top center;
+        }
+    }
+
+    &__expired {
+        border-radius: 16px;
+        background-color: hsl(var(--black)/0.2);
+        backdrop-filter: blur(10px);
+        color: hsl(var(--white));
+        width: 180px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1.2;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 110%;
+        text-transform: uppercase;
+    }
+
+    &__info {
+        padding: var(--space30) var(--space20);
+    }
+
+    &__title {
+        color: hsl(var(--white));
+        font-size: #{clampCal(14px, 22px)};
+        font-weight: 800;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 6px;
+    }
+
+    &__subtitle {
+        color: hsl(var(--white));
+        font-size:#{clampCal(10px, 14px)};
+        font-weight: 800;
+        line-height: 1.2;
+        margin-bottom: var(--space);
+
+
+
+    }
+
+    &__action {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space);
+
+        @include msm-screen {
+            flex-direction: column;
+        }
+
+    }
+
+    &__action-btn {
+        display: flex;
+        gap: 6px;
+
+        @include msm-screen {
+            width: 100%;
+
+            .btn--base {
+                width: 100%;
+            }
+        }
+    }
+
+    &__action-copy {
+        flex: 1;
+        position: relative;
+
+        @include msm-screen {
+            width: 100%;
+        }
+
+        svg {
+            color: hsl(var(--black-light-ultra));
+            transition: all 0.3s;
+
+        }
+
+        .copy {
+            position: absolute;
+            top: 50%;
+            right: 14px;
+            transform: translateY(-50%);
+
+            &:hover {
+                svg {
+                    color: hsl(var(--white));
+                }
+            }
+
+        }
+
+    }
+
+    &__desc {
+        padding-top: var(--space);
+        margin-top: var(--space);
+        border-top: 1px solid hsl(var(--black-light));
+
+        color: hsl(var(--white)/0.5);
+        font-size: #{clampCal(10px, 12px)};
+        font-weight: 500;
+        line-height: 1.4;
+    }
+}
+
+.mobile-promotion {
+    margin: var(--space40) var(--side-gap);
+    padding: var(--space20);
+    background: hsl(var(--black-standard));
+    border-radius: var(--radius30);
+
+    &__header {
+        margin-bottom: 10px;
+
+        .btn--dark {
+            background-color: hsl(var(--black-dark)) !important;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        .dropdown-menu {
+            width: 100%;
+        }
+
+        .info-message {
+            padding: 10px;
+            font-size: 10px;
+            border-radius: var(--radius16);
+            background: hsl(var(--black-light));
+
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+        gap: 4px;
+
+        @include msm-screen {
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        }
+    }
+
+    &__item {
+        padding: 10px;
+        border-radius: var(--radius16);
+        background: hsl(var(--black-dark));
+
+        .icon {
+            position: relative;
+            width: 34px;
+            aspect-ratio: 1/1;
+            border-radius: 100%;
+            background: hsl(var(--white)/0.01);
+        }
+
+        .text {
+            color: hsl(var(--base));
+            font-family: Montserrat;
+            font-size: 10px;
+            font-weight: 600;
+            line-height: 120%;
+            display: block;
+        }
+
+        .number {
+            color: hsl(var(--white));
+            font-family: var(--hading-font);
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 120%;
+        }
+    }
+}
+
+
+.promo-modal {
+    --bs-modal-width: 600px;
+
+    .modal-content {
+        padding: var(--space30);
+    }
+
+    .modal-close {
+        position: static;
+    }
+
+    &__text {
+        margin-block: 20px;
+    }
+
+    .list-group {
+        background: transparent;
+        border: 0;
+
+
+        &-item {
+            background: transparent;
+            border: 0;
+            padding: 5px 12px;
+            border-radius: var(--radius16);
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            @include sm-screen {
+                height: 34px;
+            }
+
+            &:nth-child(odd) {
+                background: hsl(var(--black-standard));
+            }
+
+            span {
+                color: hsl(var(--white));
+                font-size: #{clampCal( 12px,14px)};
+                font-weight: 500;
+                line-height: 120%;
+
+                &.value {
+                    color: hsl(var(--accent));
+
+                }
+            }
+        }
+    }
+}
+
+
+/* ======================  Promotion Section End  ======================*/

@@ -1,0 +1,76 @@
+@use "../abstracts" as *;
+
+/* ================================= Table Css Start =========================== */
+
+
+/* Table Css Start */
+.table {
+  --rounded: 16px;
+  margin: 0;
+  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0px 0px;
+
+  thead {
+    tr {
+      th {
+        background-color: hsl(var(--black-dark));
+        text-align: left;
+        padding: 14px 20px;
+        color: hsl(var(--white));
+        border-bottom: 0;
+        max-width: 170px;
+        border: 0;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.1;
+        white-space: nowrap;
+
+        &:first-child {
+          text-align: left;
+          border-radius: var(--rounded) 0 0 var(--rounded);
+        }
+
+
+
+      }
+    }
+  }
+
+  tbody {
+    border: 0 !important;
+    background-color: transparent !important;
+
+    tr {
+      border-bottom: 1px solid hsl(var(--white) / 0.08);
+
+      &:last-child {
+        border-bottom: 1px solid transparent;
+
+      }
+
+      td {
+        color: hsl(var(--white));
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.1;
+        background: transparent;
+        padding: 9px 20px;
+        vertical-align: middle;
+        min-width: 140px;
+        width: 100px;
+        height: 63px;
+
+        .btn {
+          white-space: nowrap;
+        }
+
+        &:first-child {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+/* ================================= Table Css End =========================== */

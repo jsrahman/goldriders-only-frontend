@@ -1,0 +1,20 @@
+/* ======================  PromotionTab Start  ======================*/
+
+.promotion-tab {
+    margin: 40px var(--side-gap);
+
+    .nav-link {
+        cursor: pointer;
+    }
+
+    .btn--dark {
+        background: hsl(var(--black-dark)) !important;
+        box-shadow: 0 -3px 0 0 hsl(var(--black-light)) inset !important;
+    }
+
+    td:has(.wagered) {
+        max-width: 100px;
+    }
+}
+
+/* ======================  PromotionTab End  ======================*/

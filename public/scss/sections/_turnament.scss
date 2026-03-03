@@ -1,0 +1,135 @@
+@use "../abstracts" as *;
+
+/* ======================  Turnament Start  ======================*/
+.turnament-section {
+    margin: var(--space40) var(--side-gap);
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: #{clampCal(10px, 20px)};
+
+    @include lg-screen {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+.turnament-card {
+    padding: var(--space30);
+    border-radius: var(--radius30);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding-top: 0;
+    gap:#{clampCal(29px,32px)};
+    aspect-ratio: 282/160;
+
+    @include lg-screen {
+        aspect-ratio: unset;
+    }
+
+
+    &__thumb {
+        border-radius: inherit;
+        position: absolute;
+        z-index: -1;
+        inset: 0;
+
+        img {
+            border-radius: inherit;
+        }
+    }
+
+    &__playson {
+        --rounded: 0 0 12px 12px;
+        display: flex;
+        align-items: center;
+        backdrop-filter: blur(7.5px);
+        border-radius: var(--rounded);
+        background: hsl(var(--white)/0.05);
+
+        @include msm-screen {
+            --rounded: 0 0 6px 6px;
+
+        }
+
+
+
+        .playson__badge {
+            color: hsl(var(--white));
+            font-size: #{clampCal(8px,10px)};
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            padding: 11px 14px;
+            background: hsl(var(--white)/.2);
+            border-radius: var(--rounded);
+
+            @include sm-screen {
+                padding: 5px 6px;
+            }
+
+        }
+
+        .playson__time {
+            color: hsl(var(--white));
+            font-size: #{clampCal(8px,10px)};
+            font-weight: 700;
+            line-height: 1.1;
+            padding: 11px 14px;
+            text-transform: uppercase;
+
+            @include sm-screen {
+                padding: 5px 6px;
+            }
+        }
+    }
+
+    &__content {
+        max-width: 228px;
+    }
+
+    &__title {
+        color: hsl(var(--white));
+        font-size: #{clampCal(10px,16px)};
+        font-weight: 800;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    &__number {
+        color: hsl(var(--accent));
+        font-size: #{clampCal(22px,36px)};
+        font-weight: 800;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 0;
+    }
+
+    &__btn {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .icon-button {
+            background: hsl(var(--black-standard)) !important;
+
+            svg {
+                color: hsl(var(--gray));
+                transition: all 0.3s;
+            }
+
+            &:hover {
+                svg {
+                    color: hsl(var(--black));
+                }
+
+
+            }
+        }
+    }
+}
+
+/* ======================  Turnament End  ======================*/

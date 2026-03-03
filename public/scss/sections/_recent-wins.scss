@@ -1,0 +1,297 @@
+@use "../abstracts" as *;
+
+/* =========================== Recent Wins Section Start Here ========================= */
+.recent-win {
+    --card-width: 160px;
+    margin: var(--space40) var(--side-gap);
+    padding: 20px;
+    border-radius: 20px;
+    background: hsl(var(--black-standard));
+    overflow: hidden;
+    transform: all 0.3s;
+    box-shadow: 0 0 40px 0 hsl(var(--base)/0);
+
+    &:hover {
+        box-shadow: 0 0 40px 0 hsl(var(--base)/0.25);
+    }
+
+    @include lg-screen {
+        --card-width: 140px;
+    }
+
+    @include md-screen {
+        --card-width: 120px;
+    }
+
+    @include sm-screen {
+        --card-width: 100px;
+    }
+
+    @include msm-screen {
+        --card-width: 80px;
+        padding: 10px;
+    }
+
+
+    .section-content {
+        position: relative;
+        z-index: 1;
+
+        .swiper {
+            overflow: unset !important;
+        }
+
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            right: -20px;
+            top: 0;
+            width: 20px;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-standard)/0.75) 67%);
+        }
+
+        &::before {
+            left: -20px;
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-standard)/0.75) 67%);
+        }
+    }
+
+    .swiper-slide {
+        margin-right: 20px;
+
+        @include md-screen {
+            margin-right: 15px;
+        }
+
+        @include sm-screen {
+            margin-right: 10px;
+        }
+
+        @include msm-screen {
+            margin-right: 6px;
+        }
+    }
+
+
+
+    .section-head__right {
+        @include msm-screen {
+            width: 100%;
+            flex: 1;
+
+
+        }
+    }
+}
+
+.section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    @include xsm-screen {
+        gap: 6px;
+    }
+
+    @include msm-screen {
+        margin-bottom: 10px;
+    }
+
+    &__left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__right {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .btn-list {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            @include msm-screen {
+                display: none;
+            }
+
+            .btn {
+                width: 34px;
+                height: 34px;
+                border-radius: 12px;
+            }
+        }
+
+
+    }
+
+}
+
+.banner-tabs {
+    display: flex;
+    background-color: hsl(var(--white)/0.1);
+    border-radius: 10px;
+    padding: 2px;
+
+    @include msm-screen {
+        white-space: nowrap;
+        width: 100%;
+        flex: 1;
+
+    }
+
+    &__item {
+        --color1: hsl(var(--base));
+        --color2: hsl(var(--base-two));
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 3px 20px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+
+
+        &:nth-last-child(+1) {
+            &::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 2px;
+                height: 100%;
+                z-index: 2;
+                background: radial-gradient(circle, hsl(var(--white)/0.2) 0%, rgba(0, 0, 0, 0) 100%);
+
+                @include msm-screen {
+                    background: radial-gradient(circle, hsl(var(--white)/0.08) 0%, rgba(0, 0, 0, 0) 100%);
+                    width: 1px;
+                }
+            }
+        }
+
+        @include sm-screen {
+            padding: 3px 18px;
+        }
+
+        @include msm-screen {
+            padding: 3px 12px;
+            flex: 1;
+        }
+
+
+        &.active {
+            --color1: hsl(var(--base-dark));
+            --color2: hsl(var(--base-dark));
+            background-color: hsl(var(--base));
+
+            &+.banner-tabs__item {
+                &::after {
+                    display: none;
+                }
+            }
+
+            .text {
+                color: hsl(var(--black-dark));
+            }
+        }
+
+        .text {
+            font-size: 10px;
+            font-weight: 700;
+            margin-bottom: 0;
+            color: hsl(var(--white));
+        }
+
+        * {
+            transition: all 0.3s;
+        }
+    }
+}
+
+.win-card {
+    width: var(--card-width);
+    height: var(--card-width);
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+        .win-card__price {
+            color: hsl(var(--white));
+            background-color: hsl(var(--base));
+
+        }
+    }
+
+    &__thumb {
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+
+        img {
+            z-index: -2;
+        }
+
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: 16px;
+            background: linear-gradient(180deg, transparent 71.39%, hsl(var(--black)/0.6) 100%);
+        }
+    }
+
+    &__price {
+        position: absolute;
+        left: 6px;
+        right: 6px;
+        bottom: 6px;
+        background-color: hsl(var(--black)/0.6);
+        color: hsl(var(--white));
+        padding: 6px;
+        border-radius: 16px;
+        text-align: center;
+        font-size: 10px;
+        font-family: var(--heading-font);
+        font-weight: 700;
+        line-height: 1.1;
+        padding: 4.5px;
+        z-index: 1;
+        transition: all 0.3s;
+        backdrop-filter: blur(10px);
+
+        @include msm-screen {
+            border-radius: 6px;
+            font-size: 8px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+        }
+    }
+
+    &__link {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+    }
+}
+
+/* =========================== Recent Wins Section Start Here ========================= */

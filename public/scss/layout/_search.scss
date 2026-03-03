@@ -1,0 +1,301 @@
+@use "../abstracts" as *;
+
+/* ======================  Search Start  ======================*/
+.search-modal {
+    --space: 20px;
+
+
+    .header__search {
+        display: flex !important;
+
+        @include md-screen {
+            height: 40px;
+            border-radius: 12px;
+        }
+
+        input {
+            padding-left: 6px;
+        }
+    }
+
+    .modal {
+        &-dialog {
+            --bs-modal-width: 600px;
+            width: 100%;
+            margin-top: 80px;
+        }
+
+        &-content {
+            padding-block: var(--side-gap);
+
+            &:has(.search-list) {
+                padding-bottom: 0;
+                position: relative;
+                z-index: 1;
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    right: 0;
+                    bottom: 0;
+                    width: 100%;
+                    height: 30px;
+                    z-index: 2;
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+                }
+            }
+        }
+
+    }
+
+    .modal-header,
+    .modal-body {
+        padding: 0;
+    }
+
+
+    .modal-header {
+        margin-bottom: var(--space);
+        padding-inline: var(--side-gap);
+    }
+
+    .modal-close {
+        position: static !important;
+    }
+
+    &__form {
+        padding-inline: var(--side-gap);
+        margin-bottom: var(--space);
+    }
+
+    &__tab {
+        margin: var(--space) var(--side-gap);
+        background-color: hsl(var(--black-standard));
+        border-radius: 12px;
+        height: 38px;
+        padding: 2px;
+        color: hsl(var(--white));
+        display: flex;
+        align-items: center;
+        width: fit-content;
+        white-space: nowrap;
+
+        @include msm-screen {
+            width: auto;
+        }
+
+
+
+
+        &-item {
+            padding: 5px 14px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.1;
+            color: hsl(var(--white));
+            transition: all 0.3s ease;
+            height: 100%;
+            color: hsl(var(--black-light-ultra));
+            flex: 1;
+
+            @include msm-screen {
+                flex: 1;
+            }
+
+            &:hover {
+                color: hsl(var(--accent));
+            }
+
+            &.active {
+                color: hsl(var(--black-standard));
+                background-color: hsl(var(--base));
+            }
+
+        }
+    }
+
+
+    .default-search-game {
+
+        .section-text {
+            font-size: 16px;
+
+            @include msm-screen {
+                font-size: 12px;
+            }
+        }
+
+        .section-icon {
+            svg {
+                max-height: 24px;
+
+                @include msm-screen {
+                    max-height: 20px;
+
+                }
+            }
+        }
+
+        .section-head {
+            margin-bottom: 10px;
+        }
+
+        .section-head__right {
+            display: flex;
+            align-items: center;
+
+            .btn {
+                display: flex !important;
+                padding: 2px 30px !important;
+                align-items: center;
+                gap: 6px;
+                height: 34px;
+                align-items: center;
+                justify-content: center;
+                border-radius: 12px;
+
+                &.icon-button {
+                    padding: 2px 2px !important;
+                    height: 34px !important;
+                    width: 34px !important;
+                }
+            }
+
+            .btn-list {
+                @include msm-screen {
+                    display: none;
+                }
+            }
+        }
+
+
+        .game-section {
+            margin-block: 20px;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        .game-card__content {
+            padding: 8px 10px;
+            border-radius: 0 0 12px 12px;
+            margin-top: -16px;
+            padding-top: 26px;
+        }
+
+        .game-card__name {
+            margin-bottom: 0;
+        }
+
+    }
+
+    .default-provider {
+        padding-inline: var(--side-gap);
+
+        &__content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+
+            @include msm-screen {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        &__link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6px;
+            border-radius: 12px;
+            height: 42px;
+            background-color: hsl(var(--black-standard));
+        }
+    }
+
+    .search-list {
+        padding-inline: var(--side-gap);
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        max-height: 400px;
+        overflow-y: auto;
+        scrollbar-width: thin;
+        scrollbar-color: hsl(var(--black-dark)) hsl(var(--black-light-ultra));
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: hsl(var(--accent));
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: hsl(var(--accent));
+            border-radius: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: hsl(var(--accent));
+        }
+
+        &__item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 4px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+
+            &.active {
+                background-color: hsl(var(--black-standard));
+            }
+
+            &:hover {
+                background-color: hsl(var(--black-standard));
+            }
+
+            .thumb {
+                width: 64px;
+                height: 64px;
+
+                img {
+                    border-radius: 12px;
+                }
+            }
+
+            .title {
+                color: hsl(var(--white));
+                font-family: var(--body-font);
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 1.2;
+                margin-bottom: 2px;
+            }
+
+            .desc {
+                color: hsl(var(--black-light-ultra));
+                font-family: var(--body-font);
+                font-size: 10px;
+                font-weight: 500;
+                line-height: 1.2;
+            }
+
+            .content {
+                max-width: 540px;
+                overflow-y: auto;
+
+            }
+        }
+    }
+
+    .game-section {
+        --card-width: 120px;
+    }
+}
+
+/* ======================  Search End  ======================*/

@@ -1,0 +1,65 @@
+@use "../../abstracts" as *;
+
+/* ======================  Avatar-modal Start  ======================*/
+
+.avatar-modal {
+    --bs-modal-width: 515px;
+
+    .modal-content {
+        border-radius: 10px;
+        padding: var(--space30);
+        background: hsl(var(--black-standard));
+        box-shadow: 0 10px 30px 0 rgba(var(--black), 0.50);
+        backdrop-filter: blur(8px);
+
+    }
+
+    .modal-close {
+        background-color: hsl(var(--black-dark));
+        position: static;
+
+        &:hover {
+            background-color: hsl(var(--accent));
+        }
+    }
+
+    .avatar-list {
+        margin-top: var(--space20);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space20);
+
+        .item {
+            border-radius: 100%;
+
+            img {
+                @include md-screen {
+                    width: 140px !important;
+                    height: 140px !important;
+                }
+
+                @include sm-screen {
+                    width: 120px !important;
+                    height: 120px !important;
+                }
+
+                @include msm-screen {
+                    width: 100px !important;
+                    height: 100px !important;
+                }
+
+                @include xsm-screen {
+                    width: 80px !important;
+                    height: 80px !important;
+                }
+            }
+        }
+
+        .active {
+            border: 2px solid hsl(var(--base));
+            border-radius: 100%;
+        }
+    }
+}
+
+/* ======================  Avatar-modal End  ======================*/

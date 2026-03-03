@@ -1,0 +1,142 @@
+@use "../abstracts" as *;
+
+/* ======================  Game-view Start  ======================*/
+.game-view {
+    --color1: hsl(var(--white));
+    --color2: hsl(var(--accent));
+    margin: 40px var(--side-gap);
+
+    &__header {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    &__title {
+        color: hsl(var(--white));
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1.2;
+        margin-bottom: 0;
+        flex: 1;
+        flex-shrink: 0;
+        white-space: nowrap;
+    }
+
+    &__control {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+    }
+
+    .screen-control {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+
+        max-width: fit-content;
+
+
+        .tab {
+            width: 40px;
+            height: 40px;
+            padding: 5px !important;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            svg {
+                transition: all 0.3s;
+
+                * {
+                    transition: all 0.3s;
+                }
+            }
+
+            &:hover {
+
+                svg {
+
+                    --color1: hsl(var(--accent));
+                    --color2: hsl(var(--accent)/0.5);
+                }
+
+            }
+
+            &.active {
+                background-color: hsl(var(--accent)) !important;
+                box-shadow: unset !important;
+
+                svg {
+
+                    --color1: hsl(var(--black-standard));
+                    --color2: hsl(var(--black-standard)/0.5);
+                }
+
+
+            }
+        }
+
+    }
+
+    .game-react {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .tabs {
+        display: flex;
+        align-items: center;
+        border-radius: 16px;
+        width: 267px;
+        background-color: rgba(255, 255, 255, 0.10);
+        padding: 2px;
+
+        // @include lg-screen {
+        //     display: none !important;
+        // }
+
+        .tab {
+            height: 40px;
+            gap: 6px;
+            color: hsl(var(--white));
+            border-radius: 16px;
+            padding-inline: 20px;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer !important;
+            line-height: 1.1;
+            text-transform: uppercase;
+            transition: all 0.3s;
+
+            &:hover {
+                color: hsl(var(--base));
+            }
+
+            &.active {
+                background-color: hsl(var(--base));
+                border-radius: 14px;
+                box-shadow: 0 -3px 0 0 hsl(var(--base-dark)) inset;
+                color: hsl(var(--black-light));
+            }
+        }
+    }
+}
+
+.game-body {
+    height: 500px;
+    width: 100%;
+    border-radius: 16px;
+    background: hsl(var(--black-standard));
+    margin-top: 10px;
+}
+
+
+/* ======================  Game-view End  ======================*/

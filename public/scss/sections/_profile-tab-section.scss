@@ -1,0 +1,198 @@
+@use "../abstracts/" as *;
+
+/* ======================  Profile-tab-section Start  ======================*/
+.table-filter {
+    background: hsl(var(--black-dark));
+    padding: 10px;
+    border-radius: var(--radius30) var(--radius30) 0 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: space-between;
+
+    @include sm-screen {
+        border-radius: var(--radius30) !important;
+        padding: 0 !important;
+        margin-bottom: 10px;
+
+    }
+
+}
+
+.account-tab {
+    margin: var(--space40) var(--side-gap);
+
+    &__item {
+        background: hsl(var(--black-standard));
+        padding: 10px;
+        border-radius: var(--radius30);
+
+
+
+        .table {
+            thead tr th {
+                &:first-child {
+                    text-align: left;
+                    border-radius: var(--radius30) 0 0 var(--radius30) !important;
+                }
+
+                &:last-child {
+                    text-align: left;
+                    border-radius: 0 var(--radius30) var(--radius30) 0 !important;
+                }
+            }
+        }
+    }
+
+
+
+    .date-filter {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .react-date-picker {
+            position: static !important;
+        }
+
+        @include sm-screen {
+            display: none;
+        }
+
+        &_item {
+            display: flex;
+            align-items: center;
+            height: 44px;
+            gap: 6px;
+            padding: 9px 14px;
+            background: hsl(var(--black-standard));
+            border-radius: var(--radius16);
+            position: relative;
+            min-width: 240px;
+
+        }
+
+        .info {
+            .title {
+                color: var(--colors-white-50, rgba(255, 255, 255, 0.50));
+                font-family: var(--Font-Primary, Montserrat);
+                font-size: var(--Font-size-Font-size-H7, 8px);
+                font-style: normal;
+                font-weight: 500;
+                line-height: 110%;
+                display: flex;
+            }
+        }
+
+    }
+
+
+
+    .table {
+        thead tr th {
+            &:first-child {
+                text-align: left;
+                border-radius: 0 0 0 var(--radius30);
+            }
+
+            &:last-child {
+                text-align: left;
+                border-radius: 0 0 var(--radius30) 0;
+            }
+        }
+    }
+}
+
+.table-dropdown {
+    height: 44px;
+    width: 210px;
+    background: hsl(var(--black-standard));
+    border-radius: var(--radius16);
+
+    &__header {
+        padding: 5px 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        height: 100%;
+    }
+
+
+    @include sm-screen {
+        width: 100%;
+        background: hsl(var(--black-dark));
+
+    }
+
+    span {
+        display: block;
+    }
+
+    .text {
+        color: hsl(var(--white)/0.5);
+        font-family: var(--body-font);
+        font-size: 8px;
+        font-weight: 500;
+        line-height: 110%;
+    }
+
+    .time {
+        margin-top: 2px;
+        color: hsl(var(--white));
+        font-family: var(--body-font);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 110%;
+    }
+
+    .dropdown-item {
+        color: hsl(var(--white));
+        min-height: 44px;
+
+        @include sm-screen {
+            min-height: 34px;
+        }
+    }
+}
+
+.no-data {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+
+    img {
+        width: 240px;
+        height: 240px;
+
+        @include md-screen {
+            width: 200px;
+            height: 200px;
+        }
+
+        @include sm-screen {
+            width: 160px;
+            height: 160px;
+        }
+
+    }
+
+    .text {
+        color: hsl(var(--white)/0.5);
+        font-family: var(--body-font);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 110%;
+        margin-top: 10px;
+
+        @include sm-screen {
+            display: none;
+        }
+
+    }
+}
+
+/* ======================  Profile-tab-section End  ======================*/

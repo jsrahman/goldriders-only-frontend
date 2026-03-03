@@ -1,0 +1,71 @@
+@use 'sass:string';
+@use 'sass:math';
+@use 'sass:meta';
+
+// Convert Value to  Rem;
+@function convertToRem($px) {
+  @if math.unit($px)==rem {
+    $value-without-unit: math.div($px, ($px * 0 + 1));
+    @return $value-without-unit;
+  }
+
+  @else if math.unit($px)==px {
+    $value-without-unit: math.div($px, ($px * 0 + 1));
+    $val: math.div($value-without-unit, 16); //assume em always 16px;
+    @return $val;
+  }
+
+  @else if math.unit($px)=='' {
+    $val: math.div($px, 16);
+    @return $val;
+  }
+
+  @else {
+    @warn "Invalid px 🚫 -> You must share px✅, rem✅, or only number✅ "; //invalid syntax return;
+    @return '';
+  }
+}
+
+@function formatFloatingNumber($number) {
+  @return math.div(math.round($number * 10000), 10000);
+}
+
+// Shortcut function for clamp;
+// Assuming the minimum screen width is 375 pixels and the maximum screen width is 1199px;
+@function clampCal($minSize, $maxSize, $minWidth: 375, $maxWidth: 1299) {
+  $minREMsize: convertToRem($minSize);
+  $maxREMsize: convertToRem($maxSize);
+  $minREMwidth: convertToRem($minWidth);
+  $maxREMwidth: convertToRem($maxWidth);
+
+  $slopFontCal: $maxREMsize - $minREMsize;
+  $slopWidthCal: $maxREMwidth - $minREMwidth;
+
+  $slop: math.div($slopFontCal, $slopWidthCal);
+
+  $minusWidth: $minREMwidth * -1;
+  $xAxisIntersection: $minusWidth * $slop + $minREMsize;
+  $preferred: $slop * 100;
+
+  $xAxisMax: formatFloatingNumber($xAxisIntersection);
+  $preferredMax: formatFloatingNumber($preferred);
+
+  @return clamp(#{$minREMsize}rem, #{$xAxisMax}rem + #{$preferredMax}vw, #{$maxREMsize}rem);
+}
+
+// Function to actually call from outside;
+@function rem($val) {
+  @if meta.type-of($val) !=number {
+    @return $val;
+  }
+
+  @if math.unit($val)==em {
+    @return $val;
+  }
+
+  @else {
+    @return #{convertToRem($val)}rem;
+  }
+}
+
+// ============================= Use of this function, Please Uncomment this class and see how it works =============================

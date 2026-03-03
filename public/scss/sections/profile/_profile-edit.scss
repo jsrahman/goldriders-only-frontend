@@ -1,0 +1,194 @@
+@use "../../abstracts" as *;
+
+/* ======================  Profile-edit Start  ======================*/
+.profile-edit {
+    margin: var(--space40) var(--side-gap);
+
+    .row {
+        --bs-gutter-y: 6px;
+        --bs-gutter-x: 6px;
+    }
+
+    .edit-card {
+        .form--control {
+            background-color: hsl(var(--black-dark));
+        }
+
+        .message {
+            color: hsl(var(--black-light-ultra));
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 110%;
+        }
+
+        &__back {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .title {
+                font-size: #{clampCal(14px,22px)};
+                font-weight: 500;
+                line-height: 120%;
+                margin-bottom: 0;
+            }
+        }
+
+        &__thumb {
+            width: 300px;
+            height: 300px;
+            border-radius: 100%;
+            overflow: hidden;
+            position: relative;
+            margin-top: 40px;
+            margin-bottom: 41px;
+            margin-inline: auto;
+
+            @media (max-width: 767px) {
+                width: 200px;
+                height: 200px;
+                margin-top: 26px;
+                margin-bottom: 20px;
+            }
+
+
+            &:hover {
+                .change-thumb {
+                    opacity: 1;
+                }
+            }
+
+            .change-thumb {
+                position: absolute;
+                inset: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                border-radius: inherit;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background-color: hsl(var(--black)/.6);
+                }
+            }
+
+            .btn {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                gap: 4px;
+            }
+        }
+
+        &__name {
+            margin-bottom: 20px;
+        }
+
+        &__title {
+            font-size: 16px;
+            font-weight: 500;
+            line-height: 120%;
+            margin-bottom: 10px;
+        }
+
+        &__input {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+
+            &:has(.dropdown) {
+                gap: 2px;
+
+                .dropdown {
+                    width: 64px !important;
+
+                    .icon {
+                        flex-shrink: 0;
+                        width: 20px;
+                        height: 20px;
+                        line-height: 1;
+                    }
+
+                    .dropdown-toggle {
+                        background-color: hsl(var(--black-dark)) !important;
+                        width: inherit;
+                        min-width: auto;
+                        gap: 4px;
+                        border-top-right-radius: 0 !important;
+                        border-bottom-right-radius: 0 !important;
+                        box-shadow: unset;
+
+                        &:hover {
+                            box-shadow: unset !important;
+
+                            .text {
+                                color: hsl(var(--black)) !important;
+                            }
+
+                        }
+                    }
+
+                    .dropdown-item {
+                        position: relative;
+                        justify-content: space-between;
+                    }
+
+                }
+
+                .form--control {
+                    border-top-left-radius: 0 !important;
+                    border-bottom-left-radius: 0 !important;
+                    margin-right: 10px;
+                }
+            }
+
+
+
+            &:has(+.error-message) {
+                margin-bottom: 5px !important;
+            }
+
+            +.error-message {
+                margin-bottom: 10px !important;
+            }
+
+            .form-group {
+                flex: 1;
+            }
+
+
+
+        }
+
+
+    }
+
+    .form-group {
+        display: flex;
+        align-items: center;
+    }
+
+    .edit-title {
+        font-size: #{clampCal(14px,22px)};
+        font-weight: 500;
+        line-height: 120%;
+        margin-bottom: 20px;
+    }
+}
+
+.line-button {
+    color: hsl(var(--white));
+    text-align: center;
+    font-size: #{clampCal(10px,14px)};
+    font-weight: 700;
+    line-height: 110%;
+    text-transform: uppercase;
+    padding-block: 20px 5px;
+}
+
+/* ======================  Profile-edit End  ======================*/

@@ -1,0 +1,86 @@
+@use "../../abstracts" as *;
+
+/* ======================  Account-social Start  ======================*/
+
+.social-share {
+    margin-top: 20;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        content: "";
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        left: 0;
+        width: 100%;
+        background: hsl(var(--white)/0.1);
+        height: 1px;
+        z-index: -1;
+    }
+
+
+
+    &__icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        position: relative;
+        z-index: 1;
+        max-width: fit-content;
+        margin-inline: auto;
+
+        @include msm-screen {
+            gap: 2px;
+        }
+
+        &::after {
+            z-index: -1;
+            inset: 0 -10px;
+            content: "";
+            position: absolute;
+            background: hsl(var(--black-standard));
+
+            @include msm-screen {
+                inset: 0 -6px;
+            }
+        }
+    }
+
+    a {
+        height: 44px;
+        width: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: hsl(var(--gray)/0.05);
+        color: hsl(var(--white));
+        transition: all 0.3s;
+
+        @include sm-screen {
+            height: 40px;
+            width: 40px;
+        }
+
+        @include msm-screen {
+            width: 34px;
+            height: 34px;
+
+            svg {
+                width: 14px;
+                height: 14px;
+            }
+
+        }
+
+        &:hover {
+            background: hsl(var(--accent));
+            color: hsl(var(--black));
+
+        }
+    }
+}
+
+/* ======================  Account-social End  ======================*/

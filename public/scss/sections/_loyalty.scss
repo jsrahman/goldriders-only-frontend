@@ -1,0 +1,471 @@
+@use "../abstracts" as *;
+
+/* ======================  Loyalty-section Start  ======================*/
+.loyalty-content-area {
+    @include sm-screen {
+        background-color: hsl(var(--black-standard));
+        border-radius: 14px;
+        align-items: flex-end;
+        display: block;
+        padding-bottom: 1px;
+
+    }
+}
+
+.loyalty-banner {
+    margin: var(--space40) var(--side-gap);
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    padding: var(--space20) var(--space30);
+
+    @include sm-screen {
+        margin-inline: 0;
+        padding-inline: var(--side-gap);
+        background-color: hsl(var(--black-standard));
+        border-radius: 14px;
+        align-items: flex-end;
+        display: block;
+        padding: 0;
+
+    }
+
+    &__bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: 20px;
+
+        @include sm-screen {
+            transform: translateY(var(--side-gap)) !important;
+            margin-inline: var(--side-gap);
+            max-width: calc(100% - (var(--side-gap) * 2));
+            border-radius: 4px;
+            position: relative;
+            aspect-ratio: 292/220;
+
+        }
+
+        img {
+            @include sm-screen {
+                border-radius: 4px;
+            }
+
+            border-radius: inherit;
+            object-fit:cover;
+            height: 100% !important;
+            object-position: center top;
+
+            @include xxl-screen {
+                object-position: center op;
+                object-position: bottom right;
+            }
+
+            @include sm-screen {
+                object-position: center top;
+            }
+        }
+    }
+
+    &__content {
+        max-width: 376px;
+        margin-left: 30px;
+
+        @include sm-screen {
+            padding: 20px var(--side-gap);
+            max-width: 575px;
+            margin-inline: auto;
+        }
+
+    }
+
+    &__title {
+        color: hsl(var(--white));
+        font-size: #{clampCal(20px,30px)};
+        font-weight: 700;
+        line-height: 1.2;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+
+        @include sm-screen {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+    }
+
+    &__desc {
+        color: hsl(var(--white)/0.5);
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1.4;
+
+        @include sm-screen {
+            text-align: center;
+        }
+    }
+}
+
+.loyalty-level {
+    --card-width: 300px;
+    --round: 16px;
+    padding-inline: var(--side-gap);
+    margin-block: var(--space40);
+    overflow: hidden;
+
+    @include sm-screen {
+        --card-width: 236px;
+    }
+
+
+    .section-content {
+        position: relative;
+        z-index: 1;
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+        }
+
+        &::before {
+            left: -40px;
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+        }
+    }
+
+    .swiper {
+        overflow: unset !important;
+    }
+
+
+    &__item {
+        width: var(--card-width);
+        border-radius: var(--round);
+        position: relative;
+        z-index: 1;
+        margin-block: 4px 32px;
+
+        @include sm-screen {
+            margin-block: 32px 2px;
+        }
+
+
+
+        &::after,
+        &::before {
+            z-index: -1;
+            content: '';
+            position: absolute;
+            inset: -4px -2px -2px -2px;
+            background: hsl(var(--base));
+            border-radius: var(--round) var(--round) 0 0;
+            opacity: 0;
+
+            @include sm-screen {
+                border-radius: 0 0 var(--round) var(--round);
+                background: hsl(var(--base-light));
+            }
+        }
+
+        &::after {
+            inset: 0;
+            background: hsl(var(--black-standard));
+            opacity: 1;
+            border-radius: inherit;
+
+            @include sm-screen {
+                background: hsl(var(--black-dark));
+            }
+
+        }
+
+        &.selected {
+            &::before {
+                opacity: 1;
+            }
+
+            .active-text {
+                display: block;
+            }
+        }
+
+        &.completed {
+            opacity: 0.5;
+        }
+
+        .active-text {
+            display: inline-block;
+            text-align: center;
+            position: absolute;
+            width: calc(100% + 4px);
+            padding-block: 10px 8px;
+            left: -2px;
+            top: 100%;
+            background: hsl(var(--base));
+            color: hsl(var(--black));
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+            border-radius: 0 0 var(--round) var(--round);
+            display: none;
+
+            @include sm-screen {
+                top: auto;
+                bottom: 100%;
+                border-radius: var(--round) var(--round) 0 0;
+                background: hsl(var(--base-light));
+            }
+        }
+    }
+
+    &__header {
+        padding-top: var(--space20);
+        border-radius: var(--round) var(--round) 0 0;
+        background: radial-gradient(71.86% 100% at 50% 0%, hsl(var(--black-standard)/.5) 0%, hsl(var(--black-standard)) 100%), hsl(var(--accent)/.25);
+
+        @include sm-screen {
+            background: hsl(var(--black-dark));
+
+        }
+    }
+
+    &__thumb {
+        width: 120px;
+        height: 120px;
+        position: relative;
+        margin-inline: auto;
+
+        @include sm-screen {
+            width: 80px;
+            height: 80px;
+        }
+
+
+        img {
+            object-fit: contain;
+        }
+    }
+
+    &__body {
+        padding-top: 0;
+        padding: var(--space20);
+
+        @include msm-screen {
+            padding-top: 6px;
+        }
+    }
+
+    &__info {
+        text-align: center;
+        padding-bottom: var(--space20);
+        position: relative;
+
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, hsl(var(--white)/.25) 50%, transparent 100%);
+        }
+
+
+        &-title {
+            color: hsl(var(--white));
+            text-align: center;
+            font-size: #{clampCal(14px,18px)};
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 6px;
+        }
+
+        &-level {
+            color: hsl(var(--base));
+            text-align: center;
+            font-family: var(--body-font);
+            font-size: #{clampCal(8px,10px)};
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+    }
+
+    &__features {
+        margin-top: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        &-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &:has(.lock) {
+                .text {
+                    color: hsl(var(--black-light-ultra));
+                }
+            }
+
+            span {
+                line-height: 1
+            }
+        }
+
+        .text,
+        .value {
+            color: hsl(var(--white));
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 1.2;
+        }
+
+        .value {
+            color: hsl(var(--accent));
+        }
+    }
+
+    &__footer {
+        position: relative;
+        padding-top: 6px;
+        margin-top: 6px;
+        text-align: center;
+
+        &::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, hsl(var(--white)/.25) 50%, transparent 100%);
+        }
+
+        .text {
+            color: hsl(var(--black-light-ultra));
+            text-align: center;
+            font-size: 8px;
+            font-weight: 600;
+            line-height: 120%;
+            display: block;
+        }
+
+        .value {
+            color: hsl(var(--white));
+            text-align: center;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 120%;
+
+            svg {
+                color: hsl(var(--black-light-ultra));
+
+            }
+        }
+    }
+}
+
+.loyalty-banner__card {
+    height: 216px;
+    width: 300px;
+    border-radius: var(--radius16);
+    background: linear-gradient(267deg, hsl(var(--base)/.25) 2.32%, transparent 98.08%), hsl(var(--black-standard));
+
+    @include sm-screen {
+        border-radius: var(--Radius-Radius-XXL, 16px);
+        background: linear-gradient(267deg, hsl(var(--base)/0.25) 2.32%, transparent 98.08%), hsl(var(--black-dark));
+    }
+
+    .loyalty-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+        border-bottom: 1px solid hsl(var(--black-dark));
+
+        @include sm-screen {
+            padding-top: 20px;
+        }
+
+        .level-item {
+            color: hsl(var(--white));
+            text-align: center;
+            font-size: 10px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-transform: uppercase;
+
+            p {
+                font-size: inherit;
+                line-height: inherit;
+                color: inherit;
+                font-weight: inherit;
+            }
+        }
+
+        .level-thumb {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .level-forward {
+            &::after {
+                display: block;
+                content: ".";
+                opacity: 0;
+            }
+        }
+    }
+
+    .loyalty-content {
+        padding: 20px;
+
+        .loyalty-point {
+            display: flex;
+            justify-content: space-between;
+            gap: 3px;
+            margin-bottom: 10px;
+
+            &__title {
+                color: hsl(var(--white));
+                font-size: 12px;
+                font-weight: 700;
+                line-height: 1.1;
+                margin-bottom: 0;
+            }
+
+            &__info {
+                line-height: 1;
+            }
+        }
+
+        .wagered-slider {
+            width: 100%;
+        }
+    }
+}
+
+.loyalty-card-section {
+    margin-inline: var(--side-gap);
+    margin-block: 20px;
+
+    .loyalty-banner__card {
+        @include sm-screen {
+            width: 100%;
+        }
+    }
+}
+
+/* ======================  Loyalty-section End  ======================*/

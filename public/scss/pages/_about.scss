@@ -1,0 +1,58 @@
+@use "../abstracts" as *;
+
+/* ======================  About Section Start  ======================*/
+.about-section {
+    margin: var(--space40) var(--side-gap);
+
+    .about-card {
+        background: hsl(var(--black-standard));
+        padding: var(--space30);
+        border-radius: var(--radius30);
+
+        &:not(:last-child) {
+            margin-bottom: 10px;
+        }
+
+        &__title {
+            color: hsl(var(--white));
+            font-size: #{clampCal(10px,18px)};
+            font-weight: 500;
+            line-height: 120%;
+            margin-bottom: 10px;
+        }
+
+        &__desc {
+            color: hsl(var(--white)/0.5);
+            font-size: #{clampCal(10px , 14px)};
+            line-height: 1.6;
+            font-weight: 500;
+        }
+    }
+}
+
+.about-accordion {
+    margin: var(--space40) var(--side-gap);
+
+    .section-text {
+        margin-bottom: 20px;
+
+        @include lg-screen {
+            margin-bottom: 18px;
+        }
+
+        @include md-screen {
+            margin-bottom: 14px;
+        }
+
+        @include sm-screen {
+            margin-bottom: 12px;
+        }
+
+        @include msm-screen {
+            margin-bottom: 10px;
+        }
+    }
+
+}
+
+/* ======================  About Section End  ======================*/

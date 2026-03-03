@@ -1,0 +1,301 @@
+@use "../abstracts" as *;
+
+/* ======================= Header Start Here ======================= */
+
+.header {
+  width: 100%;
+  position: sticky;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px var(--side-gap);
+  overflow: hidden;
+
+  @include msm-screen {
+    padding: 14px var(--side-gap);
+
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    min-height: 85px;
+    z-index: 1;
+    background-color: rgba(26, 26, 26, 0.60);
+    backdrop-filter: blur(10px);
+    mask-image: linear-gradient(to top, transparent 0%, hsl(var(--black)) 50%);
+    z-index: -1;
+
+    overflow-x: hidden;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &__icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: hsl(var(--white)/0.05);
+      color: hsl(var(--white));
+      transition: all 0.3s;
+
+      @include msm-screen {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+      }
+
+      &:hover {
+        color: hsl(var(--black));
+        background-color: hsl(var(--accent));
+        box-shadow: 0 2px 0 0 hsl(var(--accent-dark));
+      }
+    }
+  }
+
+
+  .header__tabs {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    width: 267px;
+    background-color: rgba(255, 255, 255, 0.10);
+    padding: 2px;
+    word-break: keep-all;
+    white-space: nowrap;
+
+
+    @include lg-screen {
+      display: none !important;
+    }
+
+
+    .header__tabs-item {
+      height: 44px;
+      gap: 6px;
+      color: hsl(var(--white));
+      border-radius: 16px;
+      padding-inline: 20px;
+      display: flex;
+      align-items: center;
+      font-weight: 700;
+      font-size: 12px;
+      cursor: pointer !important;
+
+      &.casino {
+        --svg-1: hsl(var(--accent));
+        --svg-2: #FF2B00;
+      }
+
+      svg {
+        --svg-white: hsl(var(--white));
+        color: hsl(var(--accent));
+      }
+
+      &.active {
+        background-color: hsl(var(--accent));
+        border-radius: 14px;
+        box-shadow: 0 -3px 0 0 hsl(var(--accent-dark)) inset;
+        color: hsl(var(--black-light));
+
+        svg {
+          color: #333333;
+          --svg-white: #FF2B00;
+        }
+
+        &.casino {
+          --svg-1: #333333;
+          --svg-2: #FF2B00;
+        }
+
+      }
+
+    }
+
+  }
+
+  .header__button {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    &:has(.deposit-btn) {
+      @include lg-screen {
+        .btn:first-child {
+          order: 2;
+        }
+
+        .btn:nth-child(2) {
+          order: 1;
+        }
+
+      }
+    }
+
+    .btn:has(svg) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+
+      svg {
+        width: 12px;
+        height: auto;
+      }
+    }
+
+  }
+
+  .reg-btn {
+    @include lg-screen {
+      display: none !important;
+    }
+  }
+
+  .deposit-btn {
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    padding-block: 5px !important;
+    display: flex !important;
+    min-height: 44px;
+    position: relative;
+    padding-right: 35px !important;
+
+    @include msm-screen {
+      padding-left: 10px !important;
+      min-height: 34px;
+    }
+
+
+    span {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      line-height: 1;
+      white-space: nowrap;
+      font-size: 12px;
+      display: flex;
+    }
+
+    svg {
+      @media screen and (min-width: 1200px) {
+        width: 18px !important;
+        height: 18px !important;
+      }
+    }
+
+
+
+
+  }
+
+  .header__search {
+    @include lg-screen {
+      display: none !important;
+    }
+
+  }
+}
+
+.header__search {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.10);
+  border-radius: 16px;
+  gap: 6px;
+  transition: border unset, all 0.2s !important;
+  border: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  min-width: 200px;
+
+  &:focus-within {
+    border: 1px solid hsl(var(--accent));
+  }
+
+  &:has(.header__search-text) {
+    &:hover {
+      border: 1px solid hsl(var(--accent));
+    }
+
+    &:focus {
+      border: 0;
+
+    }
+  }
+
+
+
+  &-icon {
+    padding-left: 14px;
+  }
+
+  &-input {
+    color: hsl(var(--white));
+    background-color: #0000;
+    border: none;
+    outline: none;
+    padding: 5px 16px 5px 0;
+    font-size: 12px;
+    line-height: 1.1;
+    height: 100%;
+    flex: 1;
+
+    &::placeholder {
+      color: hsl(var(--white)/0.5);
+    }
+  }
+
+  &-text {
+    color: hsl(var(--white));
+    background-color: #0000;
+    border: none;
+    outline: none;
+    padding: 5px 16px 5px 0;
+    font-size: 12px;
+    line-height: 1.1;
+    color: hsl(var(--white)/0.5);
+  }
+
+}
+
+.sidebar-body .header__search {
+  display: none;
+  flex-shrink: 0;
+  width: 100%;
+  background-color: hsl(var(--black-standard));
+
+  input {
+    padding-left: 10px;
+
+    &::placeholder {
+      color: hsl(var(--white)/0.3);
+      font-weight: 500;
+      font-size: 12px;
+    }
+  }
+
+  @media screen and (max-width: 1199px) {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+
+}
+
+/* ======================= Header Css End =========================== */

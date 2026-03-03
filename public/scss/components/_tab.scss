@@ -1,0 +1,54 @@
+@use "../abstracts" as *;
+
+/* ================================= Tab Css Start =========================== */
+.custom--tab {
+  justify-content: flex-start;
+  border-bottom: 0;
+  gap: 2px;
+
+  .nav-item {
+    border-bottom: 0;
+
+    .nav-link {
+      color: hsl(var(--white)/0.5);
+      background-color: hsl(var(--black-standard)/0.5) !important;
+      border-radius: 5px;
+      transition: background .4s;
+      border-radius: 12px 12px 0 0;
+      font-family: var(--body-font);
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-transform: uppercase;
+      padding: 14.5px 20px;
+      border: 0 !important;
+
+      @include lg-screen {
+        padding: 12px 15px;
+      }
+
+      &.active {
+        color: hsl(var(--white));
+        background-color: hsl(var(--black-standard)) !important;
+        border: 0 !important;
+
+        &:hover {
+          color: hsl(var(--white));
+        }
+      }
+
+      &:hover {
+        color: hsl(var(--base));
+      }
+    }
+  }
+
+  +.tab-content {
+    background: hsl(var(--black-standard));
+    padding: var(--space30);
+    border-radius: 0 var(--radius30) var(--radius30) var(--radius30);
+
+  }
+}
+
+/* ================================= Tab Css End =========================== */

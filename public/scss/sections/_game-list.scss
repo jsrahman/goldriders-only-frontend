@@ -1,0 +1,240 @@
+@use "../abstracts" as *;
+
+/* =========================== Game List Section Start Here ========================= */
+
+.game-section {
+    --card-width: 178px;
+    margin: var(--space40) 0;
+    padding-inline: var(--side-gap);
+    overflow: hidden;
+
+    @include md-screen {
+        --card-width: 150px;
+    }
+
+    @include msm-screen {
+        --card-width: 120px;
+    }
+
+    .swiper {
+        overflow: unset !important;
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 1;
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+        }
+
+        &::before {
+            left: -40px;
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+        }
+    }
+}
+
+.game-card {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    &:hover {
+        .game-card__thumb {
+            &::before {
+                opacity: 1;
+            }
+        }
+
+        .play-icon {
+            opacity: 1;
+
+            @include lg-screen {
+                svg {
+                    width: 50px;
+                    height: 50px;
+                }
+            }
+
+            @include msm-screen {
+                svg {
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+
+            &:hover {
+                .path-1 {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+    }
+
+    &__thumb {
+        width: 100%;
+        aspect-ratio: 1/1;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include msm-screen {
+            border-radius: 12px;
+        }
+
+        img {
+            z-index: -2;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            opacity: 0;
+            transition: all 0.3s;
+            background: linear-gradient(180deg, rgba(26, 26, 26, 0.60) 71.39%, rgba(26, 26, 26, 0.60) 100%);
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            background: linear-gradient(180deg, transparent 71.39%, hsl(var(--black)/0.6) 100%);
+        }
+
+        .game-link {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+
+        .play-icon {
+            opacity: 0;
+            z-index: 1;
+            filter: drop-shadow(0 15px 22.5px rgba(240, 73, 65, 0.30));
+        }
+
+        .path-1 {
+            transform: all 0.3s;
+            transition: transform 0.25s ease;
+            transform-origin: center;
+            transform-box: fill-box;
+        }
+    }
+
+    &__badge {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: hsl(var(--accent));
+        padding: 7px 12px;
+        border-radius: 16px;
+        font-weight: 700;
+        font-size: 8px;
+        line-height: 1.1;
+        color: hsl(var(--black-standard));
+        font-family: var(--heading-font);
+        text-transform: uppercase;
+
+        &.top-badge {
+            background-color: hsl(var(--accent));
+            color: hsl(var(--black-standard));
+        }
+
+        &.live-badge {
+            background-color: #FF2B00;
+            color: hsl(var(--white));
+        }
+
+        &.new-badge {
+            background-color: hsl(var(--base));
+            color: hsl(var(--black-standard));
+        }
+    }
+
+    &__content {
+        margin-top: -16px;
+        padding: 14px;
+        padding-top: 32px;
+        background-color: hsl(var(--black));
+        border-radius: 0 0 16px 16px;
+        background: hsl(var(--black-standard));
+        box-shadow: 0 -3px 0 0 hsl(var(--white)/0.05) inset;
+        overflow: hidden;
+        position: relative;
+        z-index: -1;
+        line-height: 1;
+
+        @include msm-screen {
+            border-radius: 12px;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            right: -4px;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-standard)/0.75) 67%);
+        }
+
+        @include msm-screen {
+            padding: 10px;
+            padding-top: 25px;
+        }
+    }
+
+    &__name {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 1.1;
+        margin-bottom: 2px;
+        color: hsl(var(--white));
+        line-height: 1.1;
+        white-space: nowrap;
+
+        @include msm-screen {
+            margin-bottom: 0px !important;
+            line-height: 1.1;
+            font-size: 12px;
+        }
+
+
+    }
+
+    &__category {
+        font-weight: 500;
+        font-size: 10px;
+        line-height: 1.1;
+        color: hsl(var(--white)/0.5);
+        line-height: 1.2;
+
+        @include msm-screen {
+            font-size: 8px;
+            line-height: 1.1;
+        }
+    }
+}
+
+/* =========================== Game List Section End Here ========================= */

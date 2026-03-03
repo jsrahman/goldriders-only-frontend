@@ -1,0 +1,63 @@
+@use "../../abstracts" as *;
+
+/* ======================  Edit-general-settings Start  ======================*/
+.general-setting-card {
+    .form--control {
+        width: 100%;
+        background-color: hsl(var(--black-dark));
+    }
+
+    .general-setting {
+        &__header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space20);
+
+            .title {
+                font-size: #{clampCal(14px,22px)};
+                font-weight: 500;
+                line-height: 120%;
+            }
+        }
+
+        &__body {
+            .row {
+                --bs-gutter-y: 10px !important;
+                --bs-gutter-x: 10px !important;
+            }
+        }
+    }
+
+    .select2-wrapper__control {
+        width: 100% !important;
+        background-color: hsl(var(--black-dark)) !important;
+        height: 44px;
+    }
+
+    .has-info-icon {
+        position: relative;
+
+        .info-icon {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-top: -2px;
+        }
+    }
+
+    .has-postcode {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .has-postcode {
+            width: 100px;
+        }
+
+    }
+
+}
+
+/* ======================  Edit-general-settings End  ======================*/

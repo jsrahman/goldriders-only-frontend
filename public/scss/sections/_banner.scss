@@ -1,0 +1,239 @@
+@use "../abstracts" as *;
+
+/* =========================== Banner Section Start Here ========================= */
+.banner-section {
+  position: relative;
+  z-index: 1;
+  padding: 260px 90px 120px;
+  margin-top: -82px;
+
+  @include lg-screen {
+    padding: 220px var(--side-gap) 100px;
+  }
+
+  @include msm-screen {
+    padding-block: 400px 30px;
+  }
+
+  @include xsm-screen {
+    padding-block: 310px 20px;
+  }
+
+  .banner__background {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    background: url('/images/banner/banner-bg.png') center/cover no-repeat;
+
+    @include msm-screen {
+      background: url('/images/banner/banner-mobile.png') center no-repeat;
+      background-size: cover;
+
+
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+
+      border: 2px solid var(--Colors-Black-dark, #1A1A1A);
+
+      background:
+        radial-gradient(96.33% 73.1% at 50% 26.9%,
+          rgba(26, 26, 26, 0.05) 10.6%,
+          var(--colors-black-0, rgba(26, 26, 26, 0)) 81.9%,
+          var(--Colors-Black-dark, #1A1A1A) 100%),
+
+    }
+  }
+
+
+}
+
+.banner__content {
+  @include msm-screen {
+    text-align: center;
+
+  }
+
+  &-sub-title {
+    margin-bottom: 0;
+
+    @include msm-screen {
+      font-size: 14px;
+    }
+
+    @include xsm-screen {
+      font-size: 12px;
+    }
+  }
+
+  &-title {
+    color: hsl(var(--white));
+    font-size: 54px;
+    line-height: 1;
+    margin-bottom: 0;
+
+    @include sm-screen {
+      font-size: 40px;
+      margin-top: 5px;
+
+    }
+
+    @include xsm-screen {
+      font-size: 26px;
+    }
+  }
+
+  &-info {
+    margin-bottom: 25px;
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    @include msm-screen {
+      justify-content: center;
+    }
+  }
+
+  .or {
+    color: hsl(var(--white));
+    font-size: 8px;
+    font-weight: 700;
+    position: relative;
+    line-height: 1;
+
+    &::after,
+    &::before {
+      content: '';
+      height: 12px;
+      width: 1px;
+      background: hsl(var(--white)/0.7);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &::after {
+      content: '';
+      top: calc(100% + 6px);
+    }
+  }
+}
+
+.banner-list {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 20px 80px;
+  width: 100%;
+
+  @media screen and (max-width:1199px) {
+    overflow: auto;
+    padding-inline: var(--side-gap);
+    sidebar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &:has(+.banner-search) {
+    margin-bottom: 0;
+
+    @include sm-screen {
+      padding-bottom: 10px;
+
+    }
+  }
+
+
+
+  &__item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 12px;
+    padding: 6px 20px;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+    background: radial-gradient(85.92% 56.55% at 50% 100%,
+        hsl(var(--base)/0.25) 0%,
+        transparent 100%),
+      hsl(var(--black-standard));
+
+    @media screen and (max-width:1499px) {
+      background: radial-gradient(85.92% 56.55% at 50% 100%, hsl(var(--base)/0.25) 0%, hsl(var(--base)/0.00) 100%), hsl(var(--black));
+      flex-direction: column;
+      gap: 7.5px;
+      padding: 10px 6px;
+      padding-bottom: 18px;
+      min-width: 100px;
+      gap: 6px;
+
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px hsl(var(--base)/0.2);
+
+      img {
+        scale: 1.1;
+      }
+    }
+
+  }
+
+  .icon {
+    width: 80px;
+    height: 80px;
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: all 0.3s ease-in-out;
+    }
+  }
+
+  .text {
+    margin-bottom: 0;
+    font-weight: 600;
+    color: hsl(var(--white));
+    flex: 1;
+
+    @media screen and (max-width:1499px) {
+      color: hsl(var(--white));
+      flex: 1;
+      margin-bottom: 0;
+      font-weight: 600;
+      vertical-align: baseline;
+      display: flex;
+      align-items: flex-end;
+      text-align: center;
+    }
+  }
+
+}
+
+.banner-search {
+  padding-inline: var(--side-gap);
+
+  button {
+    width: 100%;
+  }
+}
+
+/* =========================== Banner Section End Here ========================= */

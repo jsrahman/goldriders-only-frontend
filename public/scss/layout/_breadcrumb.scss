@@ -1,0 +1,71 @@
+@use "../abstracts" as *;
+
+/* ====================== Breadcrumb Css Start ==================== */
+.header+.breadcrumb {
+  margin-top: var(--space20) !important;
+
+  @include sm-screen {
+    margin-top: 0 !important;
+  }
+
+}
+
+.breadcrumb {
+  margin: var(--space40) var(--side-gap);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+
+  @include xsm-screen {
+    flex-direction: column;
+
+    >* {
+      width: 100%;
+    }
+
+    .pagination-content {
+      flex: 1 1 100%;
+      width: 100%;
+
+      .dropdown,
+      .btn,
+      .dropdown-menu {
+        width: 100%;
+      }
+    }
+
+  }
+
+  &-list {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap;
+  }
+
+  &-item {
+    font-size: #{clampCal(14px,22px)};
+    margin-bottom: 0;
+    font-weight: 700;
+    color: hsl(var(--base));
+    text-decoration: underline;
+
+    &:last-child {
+      @include line-clamp(1);
+    }
+
+    &::before {
+      display: none;
+    }
+
+    &.disabled {
+      color: hsl(var(--white));
+      text-decoration: none;
+      pointer-events: none;
+    }
+  }
+}
+
+/* ====================== Breadcrumb Css End ==================== */

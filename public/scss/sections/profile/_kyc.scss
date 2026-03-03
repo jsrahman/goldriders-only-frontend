@@ -1,0 +1,180 @@
+@use "../../abstracts" as *;
+/* ======================  Kyc Start  ======================*/
+
+.kyc-list {
+    height: 100%;
+}
+
+.kyc-card {
+    height: 100%;
+    --gap: var(--space20);
+    text-align: center;
+    padding: var(--space30);
+    border-radius: var(--radius30);
+    background-color: hsl(var(--black-standard));
+    display: flex;
+    flex-direction: column;
+
+    &__header {
+        @include sm-screen {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--gap);
+            gap: 10px;
+
+        }
+    }
+
+    &__input-upload {
+        @include sm-screen {
+            width: 100% !important;
+
+            .btn {
+                width: 100% !important;
+            }
+        }
+    }
+
+    &__title {
+        font-size: #{clampCal(14px,22px)};
+        font-weight: 500;
+        line-height: 120%;
+        margin-bottom: var(--gap);
+
+        @include sm-screen {
+            margin-bottom: 0;
+            order: 1;
+        }
+    }
+
+    &__thumb {
+        width: 80px;
+        height: 80px;
+        margin-inline: auto;
+        position: relative;
+        margin-bottom: var(--gap);
+
+        @include md-screen {
+            width: 60px;
+            height: 60px;
+        }
+
+        @include sm-screen {
+            width: 44px;
+            height: 44px;
+            margin: 0;
+        }
+    }
+
+    &__switch {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+
+        .text {
+            color: hsl(var(--white)/0.5);
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 130%;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid transparent;
+        }
+
+        label {
+            cursor: pointer;
+
+            &:hover .text {
+                color: hsl(var(--white));
+            }
+
+            &:has(input:checked) .text {
+                color: hsl(var(--white));
+                border-bottom: 1px solid hsl(var(--accent));
+            }
+        }
+    }
+
+    &__desc {
+        color: hsl(var(--white)/0.5);
+        text-align: center;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+        margin-top: auto;
+        max-width: 310px;
+        margin-inline: auto;
+
+        a {
+            color: hsl(var(--white));
+            text-decoration: underline;
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: hsl(var(--accent));
+            }
+        }
+    }
+
+    &__input-box {
+        margin-top: var(--gap);
+    }
+
+    &__input-info {
+        color: hsl(var(--white)/0.5);
+        text-align: center;
+        font-size: 10px;
+        font-weight: 500;
+        line-height: 110%;
+        margin-top: 10px;
+    }
+
+    &__input-file {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: hsl(var(--black-light));
+        max-width: fit-content;
+        margin-inline: auto;
+        padding: 2px 14px;
+        height: 44px;
+        border-radius: 16px;
+
+        @include sm-screen {
+            width: 100%;
+            max-width: 100%;
+        }
+
+        .text {
+            color: hsl(var(--white));
+            font-size: #{clampCal(10px,12px)};
+            font-weight: 500;
+            line-height: 120%;
+            padding-inline: 10px 20px;
+        }
+
+        .remove-icon {
+            cursor: pointer;
+            color: hsl(var(--white)/0.5);
+            transition: all 0.3s ease;
+
+            &:hover {
+                color: hsl(var(--white));
+            }
+        }
+
+        &.approved {
+            gap: 6px;
+
+            .text {
+                padding: 0;
+            }
+        }
+    }
+
+}
+
+/* ======================  Kyc End  ======================*/

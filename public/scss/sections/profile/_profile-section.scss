@@ -1,0 +1,242 @@
+@use "../../abstracts" as *;
+
+/* ======================  Profile-section Start  ======================*/
+.profile-section {
+    margin: var(--space40) var(--side-gap);
+
+    .row {
+        --bs-gutter-x: 10px;
+        --bs-gutter-Y: 10px;
+    }
+
+    .wallet-card {
+        --action-w: 140px;
+        --col-gap: 20px;
+
+
+        .card-body {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            column-gap: 20px;
+        }
+
+        * {
+            color: hsl(var(--white));
+        }
+
+        .wallet-name {
+            font-size: #{clampCal(10px,12px)};
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 0;
+            font-family: var(--body-font);
+        }
+
+        .wallet-amount {
+            font-size: #{clampCal(22px,30px)};
+            font-weight: 500;
+            line-height: 1.2;
+            margin-bottom: 6px;
+
+            @include msm-screen {
+                margin-bottom: 10px;
+            }
+        }
+
+        .wallet-ballance {
+            flex: 1 0 300px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+
+            @include sm-screen {
+                flex: 1 1 100%;
+            }
+
+            .wallet-info {
+                flex: 1 1 100%;
+            }
+
+            .ballance-list {
+                display: flex;
+                justify-content: flex-start;
+                border-radius: 12px;
+                overflow: hidden;
+                gap: 2px;
+                width: 100%;
+            }
+
+            .ballance-item {
+                min-width: 150px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: inherit;
+                padding-left: 12px;
+                padding-block: 2px;
+                flex: 1 1 auto;
+
+                @include msm-screen {
+                    min-width: 100px;
+                }
+
+
+                &:first-child {
+                    background: linear-gradient(268deg, transparent 1.64%, hsl(var(--base)/.25) 100%), hsl(var(--black)/0.6);
+                }
+
+                &:last-child {
+                    background: hsl(var(--black)/0.6);
+                }
+
+                .title {
+                    color: hsl(var(--gray));
+                    font-family: var(--body-font);
+                    font-size: #{clampCal(8px,10px, 575px)};
+                    font-weight: 500;
+                    line-height: 1.1;
+                    display: block;
+
+                }
+
+                .amount {
+                    color: hsl(var(--white));
+                    font-family: var(--heading-font);
+                    font-size: #{clampCal(12px,14px, 575px)};
+                    font-weight: 700;
+                    line-height: 1.1;
+                }
+            }
+        }
+
+        .wallet-action {
+            flex: 1 1 var(--action-w);
+            max-width: var(--action-w);
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+
+            @media screen and (max-width:1399px) {
+                order: 1;
+                width: 100%;
+                flex: 1 1 100%;
+                max-width: 100%;
+                flex-wrap: nowrap;
+                margin-top: 10px;
+            }
+
+            .btn {
+                width: 100%;
+            }
+        }
+
+        .wallet-cashback {
+            flex: 1 1 100%;
+            max-width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            position: relative;
+
+            @media screen and (max-width:1399px) {
+                padding-top: 0px;
+                margin-top: 10px;
+
+                &::before {
+                    display: none;
+                }
+            }
+
+            @include msm-screen {
+                background-color: hsl(var(--black)/0.6);
+                border-radius: 12px;
+                padding: 5px 12px;
+                margin-top: 6px;
+
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 1px;
+                background: var(--colors-white-7, rgba(255, 255, 255, 0.10));
+            }
+        }
+
+        .cashback-item {
+            align-items: center;
+            display: flex;
+
+            @include msm-screen {
+
+
+                img {
+                    width: 34px;
+                }
+            }
+
+            .title {
+                color: hsl(var(--gray));
+                font-size: #{clampCal(8px,10px, 575px)};
+                font-weight: 500;
+                line-height: 1.1;
+                margin-bottom: 4px;
+                line-height: 1;
+
+                @include msm-screen {
+                    margin-bottom: 0px;
+                    line-height: 1;
+                }
+            }
+
+            .amount {
+                font-family: hsl(var(--heading-font));
+                font-size: #{clampCal(12px,30px, 575px)};
+                font-weight: 700;
+                line-height: 1.1;
+            }
+        }
+
+        .next-level {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            span {
+                color: hsl(var(--white));
+                text-align: right;
+                font-size: 12px;
+                font-weight: 600;
+                line-height: 110%;
+                display: block;
+            }
+
+            .title {
+                @include msm-screen {
+                    font-size: 8px;
+                }
+            }
+
+            .btn--dark {
+                background-color: hsl(var(--black-dark)) !important;
+                box-shadow: 0 -3px 0 0 hsl(var(--white)/.1) inset;
+
+                &:hover {
+                    background-color: hsl(var(--accent)) !important;
+
+                }
+            }
+        }
+    }
+}
+
+/* ======================  Profile-section End  ======================*/

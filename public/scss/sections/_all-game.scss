@@ -1,0 +1,33 @@
+@use "../abstracts" as *;
+/* ======================  All-game Start  ======================*/
+
+.all-game {
+    --card-width: #{clampCal(93px,174px)};
+    margin: var(--space20) var(--side-gap);
+
+    .game-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(var(--card-width), 1fr));
+        gap: #{clampCal(6px,10px)};
+    }
+
+    .load-more-btn {
+        margin-top: 20px;
+        text-align: center;
+        box-shadow: 0 -3px 0 0 hsl(var(--white)/0.1) inset;
+
+        .btn {
+            margin-inline: auto;
+        }
+
+        @include sm-screen {
+            margin-top: 15px;
+        }
+
+        @include msm-screen {
+            margin-top: 10px;
+        }
+    }
+}
+
+/* ======================  All-game End  ======================*/

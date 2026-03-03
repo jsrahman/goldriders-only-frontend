@@ -1,0 +1,19 @@
+@use "../abstracts" as *;
+
+/* ======================  Affiliate-tab Start  ======================*/
+.affiliate-tab {
+    margin: var(--space40) var(--side-gap);
+
+    @include sm-screen {
+        padding: 10px;
+        background-color: hsl(var(--black-standard));
+        border-radius: var(--radius16);
+
+        .table-dropdown {
+            margin-bottom: 10px;
+        }
+
+    }
+}
+
+/* ======================  Affiliate-tab End  ======================*/

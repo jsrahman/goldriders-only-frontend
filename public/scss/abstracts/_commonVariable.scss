@@ -1,0 +1,62 @@
+@use './mixin' as *;
+
+/* ========================= Css Common Responsive Variables Start =========================== */
+:root {
+    --side-gap: 30px;
+
+    --space40: 40px;
+    --space30: 30px;
+    --space20: 20px;
+
+    --radius30: 30px;
+    --radius16: 16px;
+
+
+
+    @include lg-screen {
+        --side-gap: 25px;
+
+        --space30: 25px;
+        --space20: 18px;
+        --space40: 30px;
+
+        --radius30: 28px;
+        --radius16: 15px;
+
+    }
+
+    @include md-screen {
+        --side-gap: 20px;
+
+        --space40: 25px;
+        --space30: 20px;
+        --space20: 17px;
+
+        --radius30: 25px;
+        --radius16: 14px;
+    }
+
+    @include sm-screen {
+        --side-gap: 15px;
+
+        --space40: 22px;
+        --space30: 16px;
+        --space20: 15px;
+
+        --radius30: 20px;
+        --radius16: 13px;
+    }
+
+    @include msm-screen {
+        --side-gap: 14px;
+
+        --space40: 20px;
+        --space30: 14px;
+        --space20: 14px;
+
+        --radius30: 12px;
+        --radius16: 12px;
+    }
+}
+
+/* ========================= Css Common Responsive Variables End =========================== */

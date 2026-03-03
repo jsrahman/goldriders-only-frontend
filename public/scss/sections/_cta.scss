@@ -1,0 +1,140 @@
+@use "../abstracts" as *;
+
+/* =========================== CTA Section Start Here ========================= */
+.cta-section {
+    margin-inline: var(--side-gap);
+    padding-top: 40px;
+    position: relative;
+    padding: 80px 60px;
+
+    @include xl-screen {
+        padding: 60px 40px;
+    }
+
+    @include lg-screen {
+        padding: 40px 20px;
+    }
+
+
+    @include md-screen {
+        padding: 25px 15px;
+    }
+
+
+
+
+
+    .cta-bg {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: 20px;
+
+        img {
+            border-radius: inherit;
+            object-fit: cover !important;
+            object-position: center top;
+
+            @include msm-screen {
+                object-position: top center;
+            }
+        }
+    }
+
+    .section-content {
+        max-width: 460px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+        @include msm-screen {
+            gap: 10px;
+        }
+    }
+
+    .cta-title {
+        margin-bottom: 0;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.6;
+
+        @include msm-screen {
+            margin-top: 258px;
+            font-size: 10px;
+            text-align: center;
+        }
+
+    }
+
+    .base-text {
+        color: hsl(var(--base-light));
+    }
+
+    .pay-item {
+        position: relative;
+
+    }
+
+    .cta-info {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @include msm-screen {
+            justify-content: center;
+        }
+
+        .percentage {
+            font-family: var(--heading-font);
+            font-weight: 700;
+            font-size: 54px;
+            color: hsl(var(--white));
+            line-height: 1;
+
+            @include msm-screen {
+
+                font-size: 30px;
+            }
+        }
+
+        .text {
+            font-family: var(--heading-font);
+            font-weight: 600;
+            font-size: 16px;
+            color: hsl(var(--base-light));
+            max-width: 168px;
+
+            @include msm-screen {
+                font-size: 12px;
+            }
+
+        }
+    }
+
+    .cta-footers {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        flex-wrap: wrap;
+
+        @include msm-screen {
+            flex-direction: column;
+            justify-content: center;
+            row-gap: 10px;
+        }
+
+        .pay-list {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1 1 147px;
+
+            @include msm-screen {
+                gap: 7px;
+                max-height: fit-content;
+            }
+        }
+    }
+}
+
+/* =========================== CTA Section End Here ========================= */

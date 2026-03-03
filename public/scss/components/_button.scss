@@ -1,0 +1,158 @@
+@use "../abstracts" as *;
+
+/* ================================= Button Css Start =========================== */
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+  color: none;
+  background-color: none;
+  border-color: none;
+}
+
+.pill {
+  border-radius: 40px !important;
+}
+
+.btn {
+  text-transform: uppercase;
+  position: relative;
+  color: hsl(var(--black-dark)) !important;
+  padding: 15.5px 30px !important;
+  border-radius: var(--radius16);
+  z-index: 1;
+  font-family: var(--body-font);
+  font-weight: 700;
+  font-size: 12px;
+  display: inline-block !important;
+  line-height: 1.1;
+  max-height: 44px;
+
+  &:has(svg) {
+    display: flex !important;
+    align-items: center;
+    gap: 4px;
+    justify-content: center;
+
+  }
+
+  @include msm-screen {
+    max-height: 34px;
+    border-radius: 12px;
+    padding: 11.5px 30px !important;
+    max-height: 34px;
+    font-size: 10px;
+    padding: 14px 25px;
+    @include fs-10;
+  }
+
+
+  &:active {
+    top: 1px;
+  }
+
+  &--lg {
+    padding: 20px 35px;
+
+    @include md-screen {
+      padding: 18px 30px;
+    }
+
+    @include sm-screen {
+      padding: 16px 25px;
+    }
+  }
+
+  &--sm {
+    padding: 9px 18px !important;
+    max-height: 34px;
+    font-weight: 700;
+    font-size: rem(12px);
+  }
+
+  &--icon {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    @include fs-15;
+    padding: 0;
+  }
+
+  &.btn--dark {
+    padding-block: 15.5px !important;
+    color: hsl(var(--white)) !important;
+    background: hsl(var(--white)/0.05) !important;
+
+    @include msm-screen {
+
+      padding-block: 11.5px !important;
+      padding-inline: 10px !important;
+
+    }
+
+    &:hover,
+    .active {
+      background: hsl(var(--accent)) !important;
+      color: hsl(var(--black)) !important;
+      box-shadow: 0 -3px 0 0 hsl(var(--accent-dark)/0.5) inset !important;
+    }
+
+  }
+
+  &.icon-button {
+    height: 44px;
+    width: 44px;
+    padding: 5px !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    @include msm-screen {
+      height: 34px;
+      width: 34px;
+
+      svg {
+        width: 14px;
+        height: 14px;
+      }
+    }
+  }
+
+  &.no-shadow {
+    box-shadow: none !important;
+  }
+
+
+  @keyframes rotate {
+    100% {
+      transform: rotate(-360deg);
+      transform-origin: center;
+    }
+  }
+
+  // @include gradient-btn(--base, --base, --base-two, 90deg);
+  @include btn-style(--base);
+  @include btn-style(--base-two);
+  @include btn-style(--accent);
+}
+
+.load-more-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+
+  * {
+    line-height: 1;
+
+  }
+
+  &.loading {
+    svg {
+      animation: rotate 1s linear infinite;
+    }
+  }
+}
+
+/* ================================= Button Css End =========================== */

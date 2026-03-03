@@ -1,0 +1,18 @@
+@use "sass:meta";
+
+@layer app {
+    // Abstract
+    @include meta.load-css('abstracts');
+    // Base
+    @include meta.load-css('base');
+    // Component
+    @include meta.load-css('components');
+    // Layout
+    @include meta.load-css('layout');
+    // Sections
+    @include meta.load-css('sections');
+    // Plugin
+    @include meta.load-css('plugins');
+    // Partials
+    @include meta.load-css('pages');
+}

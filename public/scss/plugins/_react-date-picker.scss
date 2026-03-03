@@ -1,0 +1,59 @@
+@use "../abstracts/" as *;
+
+/* ======================  React-date-picker Start  ======================*/
+.react-calendar {
+    background: hsl(var(--black-dark)) !important;
+    border-radius: 10px !important;
+    border: none !important;
+    overflow: hidden;
+
+    button {
+        color: hsl(var(--black-light-ultra)) !important;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: hsl(var(--black)) !important;
+            color: hsl(var(--white)) !important;
+        }
+    }
+
+    .react-calendar__tile--active {
+        background-color: hsl(var(--base)) !important;
+        color: hsl(var(--black)) !important;
+    }
+
+}
+
+.react-date-picker__calendar-button.react-date-picker__button {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+}
+
+button.react-date-picker__clear-button.react-date-picker__button {
+    display: none;
+}
+
+.react-date-picker__wrapper {
+    background-color: transparent !important;
+    border: 0px !important;
+
+}
+
+.react-date-picker__inputGroup__input {
+    &:focus {
+        box-shadow: none !important;
+        outline: none !important;
+        border: unset !important;
+    }
+}
+
+.react-date-picker__inputGroup__input {
+    color: hsl(var(--white));
+    font-family: var(--body-font);
+    font-size: #{clampCal(12px,14px)};
+    font-weight: 500;
+    line-height: 110%;
+}
+
+/* ======================  React-date-picker End  ======================*/

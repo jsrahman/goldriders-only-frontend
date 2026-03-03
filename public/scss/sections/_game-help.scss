@@ -1,0 +1,402 @@
+@use "../abstracts" as *;
+
+/* =========================== Game Help Section Start Here ========================= */
+.help-section {
+    --gradient-bg: radial-gradient(72.75% 55.2% at 50.98% 30.42%,
+            hsl(var(--black-dark)/0.5) 10.6%,
+            hsl(var(--black-dark)/0) 55.33%,
+            hsl(var(--black-dark)) 100%),
+        radial-gradient(55.46% 42.09% at 50.77% 43.53%,
+            hsl(var(--black-dark)/0.5) 10.6%,
+            hsl(var(--black-dark)/0) 55.33%,
+            hsl(var(--black-dark)) 100%);
+
+    --card-height: 231px;
+    --card-width: 178px;
+
+    @media screen and (max-width:858px) {
+        --card-width: #{clampCal(80px, 178px, 320px, 858px)};
+        --card-height: #{clampCal(120px, 215px, 320px, 858px)};
+    }
+
+    padding-inline: var(--side-gap);
+    position: relative;
+    overflow: hidden;
+
+    &__bg {
+        position: absolute;
+        max-width: 600px;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        margin-inline: auto;
+        transform: translateX(-50%);
+        left: 50%;
+        top: 0;
+        z-index: 0;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        mix-blend-mode: luminosity;
+
+        img {
+            object-fit: cover !important;
+        }
+    }
+
+    .section-content {
+        padding-inline: 5px;
+
+        &__inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            min-height: #{clampCal(320px , 663px)};
+            z-index: 1;
+
+
+            &-thumb {
+                z-index: 10;
+                position: absolute;
+                max-width: 694px;
+                width: 100%;
+                aspect-ratio: 694 / 464;
+
+                &::before {
+                    content: "";
+                    backdrop-filter: blur(10px);
+                    position: absolute;
+                    inset: 0;
+                    border-radius: #{clampCal(5px , 30px)};
+                    background: linear-gradient(180deg, hsl(var(--black-standard)/0.5) 0%, hsl(var(--accent)/0.25) 100%);
+                    box-shadow: 0 20px 40px 0 hsl(var(--accent)/0.25);
+                    backdrop-filter: blur(15px);
+
+                }
+
+            }
+
+            &-content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: flex-start;
+                min-height: inherit;
+                margin-inline: auto;
+                z-index: 10;
+            }
+        }
+
+        &__title {
+            margin-top: #{clampCal(77px , 138px)};
+            font-size: #{clampCal(10.83px , 22px)};
+            margin-bottom: #{clampCal(7px , 16px)};
+            text-align: center;
+            margin-inline: auto;
+            color: hsl(var(--white));
+
+
+            @include lg-screen {
+                margin-top: #{clampCal(110px , 150px, 991, 1199)};
+            }
+
+            @include md-screen {
+                margin-top: #{clampCal(60px , 110px, 768, 991)};
+                margin-bottom: #{clampCal(20px , 16px, 768, 991)};
+            }
+
+            @include msm-screen {
+                margin-top: 60px;
+                margin-bottom: 14px;
+            }
+
+            @include xsm-screen {
+                margin-top: 60px;
+                margin-bottom: 5px;
+            }
+
+            @include xxsm-screen {
+                margin-top: 70px;
+                margin-bottom: 4px;
+            }
+
+            @media screen and (max-width:330px) {
+                margin-top: 80px;
+            }
+        }
+    }
+
+    .image-thumbs {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+
+        &::after {
+            content: '';
+            background: var(--gradient-bg);
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        &__inner {
+            position: absolute;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &.man {
+                width: 343px;
+                height: 353px;
+                top: 95px;
+                transform: rotate(-11deg) translateX(calc(-50% - 235px));
+
+                @include xxl-screen {
+                    display: none;
+                }
+
+                &::after {
+                    content: '';
+                    background: linear-gradient(180deg, #0000 26%, hsl(var(--black-dark)) 86%);
+                    position: absolute;
+                    width: 100%;
+                    height: 100px;
+                    bottom: 0px;
+                    right: 0;
+                    z-index: 1;
+                }
+            }
+
+            &.woman {
+                width: 223px;
+                height: 416px;
+                top: 19px;
+                transform: rotate(21deg)translateX(calc(527px - 50%));
+
+                @include xxl-screen {
+                    display: none;
+                }
+
+                &::after {
+                    content: '';
+                    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)) 92%);
+                    position: absolute;
+                    width: 100%;
+                    height: 300px;
+                    bottom: 0;
+                    right: 0;
+                    z-index: 1;
+                }
+
+            }
+        }
+    }
+
+    .game-card {
+        &__content {
+            padding: 30px 8px 10px;
+
+            @include md-screen {
+                padding-top: 20px;
+            }
+        }
+
+        &__name {
+            margin-bottom: -5px;
+            line-height: 1;
+        }
+    }
+}
+
+
+.help-slider {
+    width: 100%;
+    max-width: 614px;
+    aspect-ratio: 614 / 340;
+    margin-inline: auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: #{clampCal(5px , 16px)};
+    background: hsl(var(--black-dark));
+    box-shadow: 0 4px 0 0 hsl(var(--white)/0.05) inset, 0 -4px 0 0 hsl(var(--black)/0.2) inset;
+    position: relative;
+    z-index: 1;
+
+    @media screen and (max-width:745px) {
+        max-width: 554px;
+        width: calc(100% - #{clampCal(20px , 40px)});
+        gap: 6px;
+    }
+
+    &::after,
+    &::before {
+        content: "";
+        position: absolute;
+        right: 0px;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        z-index: 2;
+        background: linear-gradient(360deg, transparent 0%, hsl(var(--black-dark)) 100%);
+    }
+
+    &::before {
+        top: calc(100% - 50px);
+        background: linear-gradient(180deg, transparent 0%, hsl(var(--black-dark)) 100%);
+    }
+
+    .help-slider__item:nth-child(2) {
+        transform: scale(-1);
+
+        .game-card {
+            transform: scale(-1);
+        }
+    }
+}
+
+.section-content__inner-content {
+    position: relative;
+    max-width: 614px;
+
+    .slider-icon {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        .image-thumbs__inner {
+            position: absolute;
+            z-index: 2;
+            aspect-ratio: 1/1;
+            background: transparent;
+            border: 0;
+        }
+
+        .number {
+            --space: 20px;
+            --width: #{clampCal(51px , 140px)};
+            left: calc(100% - var(--space));
+            bottom: 154px;
+            width: var(--width);
+            transform: rotate(-15deg);
+
+            @media screen and (max-width:1499px) and (min-width:1200px) {
+                --space: 10px;
+            }
+
+            @media screen and (max-width:1199px) and (min-width:991px) {
+                --space: 10px;
+            }
+
+            @media screen and (max-width:991px) and (min-width:575px) {
+                --space: 38px;
+            }
+
+
+            @include msm-screen {
+                --space: 30px;
+            }
+        }
+
+        .jackpot {
+            --left: -113px;
+            width: #{clampCal(57px , 113px)};
+            bottom: 146px;
+            right: 100%;
+
+            @include md-screen {
+                bottom: 90px;
+            }
+
+            @include sm-screen {
+                right: calc(100% - 40px);
+            }
+        }
+
+        .card {
+            top: 32px;
+            left: 15px;
+            width: #{clampCal(43px , 122px)};
+
+            @include md-screen {
+                top: -10px;
+            }
+
+            @include sm-screen {
+                top: -30px;
+            }
+
+            @media screen and (max-width:640px) {
+                top: -10px;
+            }
+
+            @media screen and (max-width:500px) {
+                top: 20px !important;
+            }
+
+            @media screen and (max-width:375px) {
+                top: 40px !important;
+            }
+
+        }
+    }
+
+}
+
+
+
+/* =========================== Game Help Section End Here ========================= */
+
+.help-slider {
+    display: flex;
+
+    &__item {
+        height: 100%;
+    }
+}
+
+.ticker {
+    height: var(--card-height);
+}
+
+.ticker-track {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    animation: ticker-scroll 40s linear infinite;
+
+}
+
+.ticker:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    width: var(--card-width);
+}
+
+@keyframes ticker-scroll {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-50%);
+    }
+}

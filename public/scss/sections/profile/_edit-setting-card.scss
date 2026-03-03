@@ -1,0 +1,83 @@
+@use "../../abstracts" as *;
+
+/* ======================  Edit-setting-card Start  ======================*/
+.setting-card {
+    margin-bottom: 6px;
+
+    &__setting {
+        width: 100%;
+        margin-bottom: 20px;
+
+        .btn {
+            width: 100%;
+        }
+
+        .dropdown-menu {
+            width: 100%;
+        }
+
+
+        .btn {
+            background-color: hsl(var(--black-dark)) !important;
+            box-shadow: unset;
+
+
+        }
+
+        .text {
+            color: hsl(var(--white));
+            font-size: #{clampCal(12px,14px)};
+            font-weight: 500;
+            line-height: 120%;
+        }
+    }
+
+    &__privacy {
+        margin-bottom: 20px;
+
+        +.btn {
+            @include md-screen {
+                width: 100% !important;
+            }
+        }
+
+        .btn {
+            background-color: hsl(var(--black-dark)) !important;
+            box-shadow: unset;
+            text-align: left;
+
+
+        }
+
+
+        .setting-dropdown {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            &:not(:last-child) {
+                margin-bottom: 10px;
+            }
+        }
+
+        .btn {
+            width: 140px !important;
+            min-width: auto;
+
+            @include msm-screen {
+                width: 90px !important;
+            }
+        }
+
+        .text {
+            flex: 1;
+            color: hsl(var(--white));
+            font-size: #{clampCal(12px,14px)};
+            font-weight: 500;
+            line-height: 120%;
+        }
+    }
+}
+
+
+/* ======================  Edit-setting-card End  ======================*/

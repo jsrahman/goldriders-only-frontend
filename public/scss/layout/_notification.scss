@@ -1,0 +1,82 @@
+@use "../abstracts" as *;
+
+/* ======================  Notification Start  ======================*/
+
+.offcanvas:has(.notification-item) {
+    --offcanvas-width: 360px;
+    max-width: var(--offcanvas-width);
+
+    @include msm-screen {
+        --offcanvas-width: 280px;
+        padding: 0px;
+    }
+}
+
+.notification-item {
+    padding: 16px;
+    background-color: hsl(var(--black-standard));
+    border-radius: 16px;
+    margin-block: 10px;
+
+    @include msm-screen {
+        padding: 10px;
+    }
+
+    &-date {
+        color: hsl(var(--black-light-ultra));
+        margin-bottom: 4px;
+        font-size: 10px;
+
+        @include msm-screen {
+            font-size: 8px;
+        }
+    }
+
+    &-title {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: hsl(var(--white));
+
+        @include msm-screen {
+            font-size: 14px;
+        }
+    }
+
+    &-desc {
+        color: hsl(var(--black-light-ultra));
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 12px;
+        max-height: 70px;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+
+        @include msm-screen {
+            font-size: 10px;
+        }
+    }
+
+    &-desc-toggler {
+        margin-bottom: 12px;
+        cursor: pointer;
+        font-weight: 600;
+        display: block;
+        font-size: 10px;
+
+        .text {
+            color: hsl(var(--black-light-ultra));
+            text-decoration: underline;
+        }
+
+        .icon {
+            margin-left: 5px;
+            color: hsl(var(--black-light-ultra));
+        }
+    }
+
+    .btn {
+        text-transform: uppercase;
+    }
+}
+
+/* ======================  Notification End  ======================*/

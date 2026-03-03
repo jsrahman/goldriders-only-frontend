@@ -1,0 +1,37 @@
+@use 'mixin-function' as *;
+
+// /* Font Family*/
+@import url('https://fonts.googleapis.com/css2?family=Geologica:wght@100;200;300;400;500;600;700;800;900&family=Ubuntu:wght@300;400;500;700;900&display=swap');
+
+/* ========================= Css Color Typography Variables Start ======================== */
+:root {
+
+  @include colorVariable(--base-light, #34FF45);
+  @include colorVariable(--base-dark, #006609);
+  @include colorVariable(--base, #13BF22);
+  @include colorVariable(--base-two, #CC9E5F);
+  @include colorVariable(--base-two-dark, #735935);
+
+  @include colorVariable(--body-color, #cccccc);
+  @include colorVariable(--heading-color, #e2e2e2);
+  @include colorVariable(--border-color, #e0e0e0);
+  @include colorVariable(--section-bg, #f0f8ff);
+
+  @include colorVariable(--accent, #FFBF00);
+  @include colorVariable(--accent-dark, #FF9500);
+
+  @include colorVariable(--alarm, #FF2B00);
+  @include colorVariable(--alarm-dark, #CC2200);
+
+  @include colorVariable(--black, #000);
+  @include colorVariable(--black-light, #333333);
+  @include colorVariable(--black-light-ultra, #808080);
+  @include colorVariable(--black-dark, #1A1A1A);
+  @include colorVariable(--black-standard, #242424);
+
+  @include colorVariable(--gray, #F0EFD8);
+
+  @include colorVariable(--white, #ffffff);
+}
+
+/* ========================= Css Color Typography Variables End =========================== */

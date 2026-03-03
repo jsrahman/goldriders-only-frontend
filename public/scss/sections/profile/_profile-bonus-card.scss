@@ -1,0 +1,82 @@
+@use "../../abstracts" as *;
+
+/* ======================  Profile-bonus-card Start  ======================*/
+
+.bonus-card {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 8px;
+
+
+    &__item {
+        padding: var(--space30);
+        border-radius: var(--radius30);
+        background-color: hsl(var(--black-standard));
+        display: flex;
+        align-items: center;
+
+        @media screen and (max-width:991px) and (min-width:768px) {
+            padding: 14px 20px;
+        }
+    }
+
+    &__info {
+        flex: 1;
+
+        .title {
+            color: hsl(var(--base));
+            font-family: var(--body-font);
+            font-size: #{clampCal(10px,14px)};
+            font-weight: 600;
+            line-height: 120%;
+            margin-bottom: 6px;
+
+
+
+            @include msm-screen {
+                margin-bottom: 4px;
+            }
+        }
+
+        .amount {
+            margin-bottom: 0;
+            font-size: #{clampCal(18px,30px)};
+            font-weight: 500;
+            line-height: 120%;
+
+            @media screen and (max-width:991px) and (min-width:768px) {
+                font-size: 20px;
+            }
+        }
+    }
+
+    &__thumb {
+        position: relative;
+        width: 80px;
+        height: 80px;
+
+        @media screen and (max-width:1399px) and (min-width:768px) {
+            width: 40px;
+            height: 40px;
+        }
+
+        @include msm-screen {
+            width: 50px;
+            height: 50px;
+        }
+
+        @include xsm-screen {
+            width: 34px;
+            height: 34px;
+
+        }
+
+        img {
+            object-fit: contain;
+        }
+    }
+}
+
+/* ======================  Profile-bonus-card End  ======================*/

@@ -1,0 +1,52 @@
+/* =========================== Providers Section Start Here ========================= */
+.providers-section {
+    margin: var(--space40) 0;
+    padding-inline: var(--side-gap);
+    overflow: hidden;
+
+    .swiper {
+        overflow: unset !important;
+    }
+
+    .section-content {
+        position: relative;
+        z-index: 1;
+
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            right: -40px;
+            top: 0;
+            width: 40px;
+            height: 100%;
+            z-index: 2;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+        }
+
+        &::before {
+            left: -40px;
+            background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0%, hsl(var(--black-dark)/0.75) 67%);
+        }
+    }
+
+}
+
+.provider-card {
+    width: 163px;
+    height: 74px;
+    position: relative;
+    z-index: 1;
+    border-radius: 16px;
+    padding: 10px 14px;
+    background-color: hsl(var(--black-standard));
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+}
+
+/* =========================== Providers Section End Here ========================= */
